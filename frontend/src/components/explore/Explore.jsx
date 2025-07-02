@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../Footer.jsx";
+import Footer from "../footer.jsx";
 import { useNavigate } from "react-router-dom";
 import {
   Command,
