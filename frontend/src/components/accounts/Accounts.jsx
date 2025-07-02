@@ -25,7 +25,7 @@ function Accounts() {
     async function fetchUser() {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:8080/auth/${id}`);
+        const res = await fetch(`https://pic-pe-api.vercel.app/auth/${id}`);
         const data = await res.json();
         if (!data.success) throw new Error(data.message || "User not found");
 
@@ -55,7 +55,7 @@ function Accounts() {
   }, [posts]);
 
   const fetchComments = async (postId) => {
-    const res = await fetch(`http://localhost:8080/comments/post/${postId}`);
+    const res = await fetch(`https://pic-pe-api.vercel.app/comments/post/${postId}`);
     const data = await res.json();
     setComments((prev) => ({ ...prev, [postId]: data.comments || [] }));
   };
@@ -63,7 +63,7 @@ function Accounts() {
   const handleFollow = async () => {
     setActionLoading(true);
     try {
-      const res = await fetch(`http://localhost:8080/auth/${id}/follow`, {
+      const res = await fetch(`https://pic-pe-api.vercel.app/auth/${id}/follow`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -83,7 +83,7 @@ function Accounts() {
   const handleUnfollow = async () => {
     setActionLoading(true);
     try {
-      const res = await fetch(`http://localhost:8080/auth/${id}/unfollow`, {
+      const res = await fetch(`https://pic-pe-api.vercel.app/auth/${id}/unfollow`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -102,7 +102,7 @@ function Accounts() {
 
   const toggleLike = async (postId) => {
     const isLiked = likedPosts[postId];
-    const endpoint = `http://localhost:8080/post/${postId}/${isLiked ? "dislike" : "like"}`;
+    const endpoint = `https://pic-pe-api.vercel.app/post/${postId}/${isLiked ? "dislike" : "like"}`;
     try {
       const res = await fetch(endpoint, {
         method: "PATCH",
@@ -134,7 +134,7 @@ function Accounts() {
     e.preventDefault();
     const text = commentInputs[postId];
     if (!text) return;
-    await fetch("http://localhost:8080/comments/add", {
+    await fetch("https://pic-pe-api.vercel.app/comments/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -147,7 +147,7 @@ function Accounts() {
   };
 
   const handleDeleteComment = async (commentId, postId) => {
-    await fetch(`http://localhost:8080/comments/${commentId}`, {
+    await fetch(`https://pic-pe-api.vercel.app/comments/${commentId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
