@@ -19,14 +19,14 @@ function Home() {
   const token = localStorage.getItem("token");
 
   const fetchPosts = async () => {
-    const res = await fetch("http://localhost:8080/post/display");
+    const res = await fetch("https://pic-pe-api.vercel.app/post/display");
     const data = await res.json();
     setPosts(data.posts || []);
   };
 
   const fetchStories = async () => {
     try {
-      const res = await fetch("http://localhost:8080/story/display", {
+      const res = await fetch("https://pic-pe-api.vercel.app/story/display", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,7 +39,7 @@ function Home() {
   };
 
   const fetchComments = async (postId) => {
-    const res = await fetch(`http://localhost:8080/comments/post/${postId}`);
+    const res = await fetch(`https://pic-pe-api.vercel.app/comments/post/${postId}`);
     const data = await res.json();
     setComments((prev) => ({ ...prev, [postId]: data.comments || [] }));
   };
@@ -68,7 +68,7 @@ function Home() {
     const text = commentInputs[postId];
     if (!text) return;
 
-    await fetch("http://localhost:8080/comments/add", {
+    await fetch("https://pic-pe-api.vercel.app/comments/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ function Home() {
   };
 
   const handleDeleteComment = async (commentId, postId) => {
-    await fetch(`http://localhost:8080/comments/${commentId}`, {
+    await fetch(`https://pic-pe-api.vercel.app/comments/${commentId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -95,7 +95,7 @@ function Home() {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/post/${postId}/${route}`,
+        `https://pic-pe-api.vercel.app/post/${postId}/${route}`,
         {
           method: "PATCH",
           headers: { Authorization: `Bearer ${token}` },
