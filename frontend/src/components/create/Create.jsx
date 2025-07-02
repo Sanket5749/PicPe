@@ -28,7 +28,7 @@ export default function Create() {
         media: data.media,
         userId,
       };
-      const url = "http://localhost:8080/post/create";
+      const url = "https://pic-pe-api.vercel.app/post/create";
       const response = await fetch(url, {
         method: "POST",
         headers: {
