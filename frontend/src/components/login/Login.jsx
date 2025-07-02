@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../Footer.jsx";
 import Rendering from "../Rendering.jsx";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toastify";
