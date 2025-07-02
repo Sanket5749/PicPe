@@ -29,7 +29,7 @@ function Account() {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch("http://localhost:8080/auth/me", {
+      const res = await fetch("https://pic-pe-api.vercel.app/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -48,7 +48,7 @@ function Account() {
   };
 
   const fetchComments = async (postId) => {
-    const res = await fetch(`http://localhost:8080/comments/post/${postId}`);
+    const res = await fetch(`https://pic-pe-api.vercel.app/comments/post/${postId}`);
     const data = await res.json();
     setComments((prev) => ({ ...prev, [postId]: data.comments || [] }));
   };
@@ -63,7 +63,7 @@ function Account() {
 
   const toggleLike = async (postId) => {
     const isLiked = likedPosts[postId];
-    const endpoint = `http://localhost:8080/post/${postId}/${
+    const endpoint = `https://pic-pe-api.vercel.app/post/${postId}/${
       isLiked ? "dislike" : "like"
     }`;
     try {
@@ -98,7 +98,7 @@ function Account() {
     e.preventDefault();
     const text = commentInputs[postId];
     if (!text) return;
-    await fetch("http://localhost:8080/comments/add", {
+    await fetch("https://pic-pe-api.vercel.app/comments/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +111,7 @@ function Account() {
   };
 
   const handleDeleteComment = async (commentId, postId) => {
-    await fetch(`http://localhost:8080/comments/${commentId}`, {
+    await fetch(`https://pic-pe-api.vercel.app/comments/${commentId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -120,7 +120,7 @@ function Account() {
 
   const handleDeletePost = async (postId) => {
     try {
-      const res = await fetch(`http://localhost:8080/post/${postId}`, {
+      const res = await fetch(`https://pic-pe-api.vercel.app/post/${postId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
