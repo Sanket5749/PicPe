@@ -27,7 +27,7 @@ export default function Story() {
         media: data.media,
         userId,
       };
-      const url = "http://localhost:8080/story/create";
+      const url = "https://pic-pe-api.vercel.app/story/create";
       const response = await fetch(url, {
         method: "POST",
         headers: {
