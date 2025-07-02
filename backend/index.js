@@ -27,7 +27,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173/",
-      "https://pic-pe-ui-sanket5749s-projects.vercel.app",
+      "https://pic-pe-ui.vercel.app",
     ],
   })
 );
