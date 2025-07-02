@@ -1,0 +1,19 @@
+.like-button {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: transform 0.2s ease;
+  color: #bbb;
+}
+
+.like-button.liked {
+  color: #ff4d6d;
+}
+
+.like-button:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
