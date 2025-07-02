@@ -23,11 +23,13 @@ main()
   });
 
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "*", 
-  })
-);
+app.use(cors({
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+}));
+
 app.use("/auth", AuthRouter);
 app.use("/post", PostRouter);
 app.use("/messages", MessageRouter);
