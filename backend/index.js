@@ -25,10 +25,7 @@ main()
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173/",
-      "https://pic-pe-ui.vercel.app",
-    ],
+    origin: "*", 
   })
 );
 app.use("/auth", AuthRouter);
