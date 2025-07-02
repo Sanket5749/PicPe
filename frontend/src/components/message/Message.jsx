@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Footer from '../footer.jsx'
+import Footer from "../footer.jsx";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from '@mui/icons-material/Send';
 import "./Message.css"
@@ -17,7 +17,7 @@ function Message() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const url = "https://pic-pe-api.vercel.app/auth/me";
+        const url = "http://localhost:8080/auth/me";
         const response = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -31,7 +31,7 @@ function Message() {
     };
     const fetchUsers = async () => {
       try {
-        const url = "https://pic-pe-api.vercel.app/auth/display";
+        const url = "http://localhost:8080/auth/display";
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch users");
         const result = await response.json();
@@ -50,7 +50,7 @@ function Message() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://pic-pe-api.vercel.app/messages/with/${otherId}`, {
+      const res = await fetch(`http://localhost:8080/messages/with/${otherId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -64,7 +64,7 @@ function Message() {
     e.preventDefault();
     if (!text || !selectedUser) return;
     const token = localStorage.getItem("token");
-    const res = await fetch("https://pic-pe-api.vercel.app/messages/send", {
+    const res = await fetch("http://localhost:8080/messages/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Message() {
 
   const handleDeleteMessage = async (messageId) => {
     const token = localStorage.getItem("token");
-    await fetch(`https://pic-pe-api.vercel.app/messages/${messageId}`, {
+    await fetch(`http://localhost:8080/messages/${messageId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -97,7 +97,8 @@ function Message() {
   );
 
   return (
-<div className="container-fluid d-flex flex-column bg-black min-vh-100 px-3 py-2">
+  
+    <div className="min-h-screen container d-flex flex-column justify-between bg-black px-3 py-2">
   <div className="d-flex align-items-center gap-3 border-bottom pb-2 mb-3">
     <img src="/user.jpg" alt="user" className="rounded-circle" style={{ width: 50, height: 50 }} />
     <h5 className="text-white m-0">{user ? user.username : "Undefined"}</h5>
@@ -169,6 +170,7 @@ function Message() {
 
   <Footer />
 </div>
+
   )
 }
 
