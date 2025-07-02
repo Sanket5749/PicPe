@@ -24,14 +24,6 @@ function Footer() {
         to="/"
         style={{color : "white"}}
       />
-        <BottomNavigationAction
-          label="Message"
-          value="message"
-          icon={<ChatIcon />}
-          component={Link}
-          to="/message"
-          style={{color : "white"}}
-        />
       <BottomNavigationAction
         label="Create"
         value="create"
@@ -40,6 +32,14 @@ function Footer() {
         to="/create"
         style={{color : "white"}}
       />
+        <BottomNavigationAction
+          label="Message"
+          value="message"
+          icon={<ChatIcon />}
+          component={Link}
+          to="/message"
+          style={{color : "white"}}
+        />
         <BottomNavigationAction
           label="Explore"
           value="explore"
