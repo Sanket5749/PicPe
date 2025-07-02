@@ -23,7 +23,14 @@ main()
   });
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173/",
+      "https://pic-pe-ui-sanket5749s-projects.vercel.app",
+    ],
+  })
+);
 app.use("/auth", AuthRouter);
 app.use("/post", PostRouter);
 app.use("/messages", MessageRouter);
