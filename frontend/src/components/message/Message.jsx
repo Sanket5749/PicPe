@@ -17,7 +17,7 @@ function Message() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const url = "http://localhost:8080/auth/me";
+        const url = "https://pic-pe-api.vercel.app/auth/me";
         const response = await fetch(url, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -31,7 +31,7 @@ function Message() {
     };
     const fetchUsers = async () => {
       try {
-        const url = "http://localhost:8080/auth/display";
+        const url = "https://pic-pe-api.vercel.app/auth/display";
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch users");
         const result = await response.json();
@@ -50,7 +50,7 @@ function Message() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:8080/messages/with/${otherId}`, {
+      const res = await fetch(`https://pic-pe-api.vercel.app/messages/with/${otherId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -64,7 +64,7 @@ function Message() {
     e.preventDefault();
     if (!text || !selectedUser) return;
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:8080/messages/send", {
+    const res = await fetch("https://pic-pe-api.vercel.app/messages/send", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ function Message() {
 
   const handleDeleteMessage = async (messageId) => {
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:8080/messages/${messageId}`, {
+    await fetch(`https://pic-pe-api.vercel.app/messages/${messageId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
