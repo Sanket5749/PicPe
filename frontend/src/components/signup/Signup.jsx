@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../Footer.jsx";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toastify";
 import { handleSuccess, handleError } from "../utils.js";
