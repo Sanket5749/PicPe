@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import Footer from "../footer.jsx";
 import { ToastContainer } from "react-toastify";
 import { handleSuccess, handleError } from "../utils.js";
 import { useNavigate, Link } from "react-router-dom";
