@@ -16,7 +16,7 @@ function Explore() {
 
   const fetchUsers = async () => {
     try {
-      const url = "http://localhost:8080/auth/display";
+      const url = "https://pic-pe-api.vercel.app/auth/display";
       const response = await fetch(url);
       if (!response.ok) throw new Error("Failed to fetch users");
       const result = await response.json();
