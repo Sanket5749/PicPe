@@ -35,7 +35,7 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const url = "https://pic-pe-api.vercel.app/auth/login";
+      const url = "https://pic-pe-api.vercel.app/login";
       const response = await fetch(url, {
         method: "POST",
         headers: {
