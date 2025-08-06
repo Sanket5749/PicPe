@@ -24,7 +24,7 @@ main()
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/", AuthRouter);
+app.use("/auth", AuthRouter);
 app.use("/post", PostRouter);
 app.use("/messages", MessageRouter);
 app.use("/comments", CommentRouter);
