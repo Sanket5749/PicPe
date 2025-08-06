@@ -23,7 +23,7 @@ export default function Signup() {
 
   const onSubmit = async (data) => {
     try {
-      const url = "https://pic-pe-api.vercel.app/signup";
+      const url = "https://pic-pe-api.vercel.app/auth/signup";
       const response = await fetch(url, {
         method: "POST",
         headers: {
