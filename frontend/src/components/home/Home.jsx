@@ -21,7 +21,6 @@ function Home() {
   const fetchPosts = async () => {
     const res = await fetch("https://pic-pe-api.vercel.app/post/display");
     const data = await res.json();
-    console.log(data);
     setPosts(data.posts || []);
   };
 
