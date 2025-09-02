@@ -23,7 +23,11 @@ main()
   });
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://pic-pe.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use("/auth", AuthRouter);
 app.use("/post", PostRouter);
 app.use("/messages", MessageRouter);
