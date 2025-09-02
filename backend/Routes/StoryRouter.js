@@ -4,7 +4,7 @@ const {displayStory} = require("../Controllers/StoryController.js");
 const {viewStories} = require("../Controllers/StoryController.js");
 const authenticateToken = require("../middleware/Middleware.js");
 
-router.post("/create", authenticateToken,createStory);
-router.get("/display", authenticateToken,displayStory);
+router.post("/create", createStory);
+router.get("/display", displayStory);
 
 module.exports = router;
