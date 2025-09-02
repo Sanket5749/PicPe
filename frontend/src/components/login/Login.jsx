@@ -49,7 +49,7 @@ export default function Login() {
         handleSuccess(message);
         localStorage.setItem("token", token);
         localStorage.setItem("loggedInUser", username);
-        const userRes = await fetch("http://localhost:8080/auth/me", {
+        const userRes = await fetch("http://pic-pe-api.vercel.app/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const userData = await userRes.json();
