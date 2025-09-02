@@ -29,7 +29,10 @@ export default function Story() {
       };
       const url = "https://pic-pe-api.vercel.app/story/create";
       const response = await fetch(url, {
-        method: "POST"
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(payload),
       });
       const result = await response.json();
