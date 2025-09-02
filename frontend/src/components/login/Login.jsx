@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../Footer.jsx";
 import Rendering from "../Rendering.jsx";
-import Footer from "../footer.jsx";
 import { useForm } from "react-hook-form";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -49,7 +49,7 @@ export default function Login() {
         handleSuccess(message);
         localStorage.setItem("token", token);
         localStorage.setItem("loggedInUser", username);
-        const userRes = await fetch("http://pic-pe-api.vercel.app/auth/me", {
+        const userRes = await fetch("https://pic-pe-api.vercel.app/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const userData = await userRes.json();

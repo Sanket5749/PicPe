@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../footer.jsx";
+import Footer from "../Footer.jsx";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SendIcon from '@mui/icons-material/Send';
 import "./Message.css"

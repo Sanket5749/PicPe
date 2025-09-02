@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../footer.jsx";
-import { useNavigate } from "react-router-dom";
+import Footer from "../Footer.jsx";
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { handleSuccess } from "../utils.js";
 import { Button } from "@/components/ui/button";
 import DeleteIcon from "@mui/icons-material/Delete";

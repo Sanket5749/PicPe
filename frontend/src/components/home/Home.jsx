@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../footer.jsx";
+import Footer from "../Footer.jsx";
 import { Button } from "@/components/ui/button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -191,7 +191,7 @@ function Home() {
                 className="card bg-dark text-white p-2"
                 style={{ width: "300px" }}
               >
-{/*                 <p>@{post.owner.username}</p> */}
+                <p>@{post.owner.username}</p>
                 <img
                   src={post.media}
                   alt="Post"
