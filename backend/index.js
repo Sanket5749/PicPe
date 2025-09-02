@@ -24,10 +24,17 @@ main()
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'https://pic-pe.vercel.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: 'https://pic-pe.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+app.options('*', cors());
+app.use((req, res, next) => {
+  console.log(`[${req.method}] ${req.url}`);
+  console.log('Origin:', req.headers.origin);
+  next();
+});
 app.use("/auth", AuthRouter);
 app.use("/post", PostRouter);
 app.use("/messages", MessageRouter);
