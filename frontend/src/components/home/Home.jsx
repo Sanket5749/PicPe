@@ -200,15 +200,12 @@ function Home() {
                 />
                 <div className="card-body">
                   <p className="card-text mb-2">{post.caption}</p>
-
                   <button
                     className={`like-button ${likedPosts[post._id] ? "liked" : ""}`}
-                    onClick={() => {toggleLike(post._id); window.location.reload()}}
-                  >
+                    onClick={() => toggleLike(post._id)}>
                     {likedPosts[post._id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}{" "}
-                    {post.likes.length}
+                    {posts.find((p) => p._id === post._id)?.likes.length}
                   </button>
-
                   <form
                     onSubmit={(e) => handleCommentSubmit(e, post._id)}
                     className="d-flex gap-2 my-2"
@@ -262,6 +259,7 @@ function Home() {
 }
 
 export default Home;
+
 
 
 
