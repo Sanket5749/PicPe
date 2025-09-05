@@ -173,7 +173,7 @@ function Home() {
                 />
               </div>
               <small className="text-white d-block mt-1">
-                {story.owner?._id === userId ? "Your Story" : story.owner?.username || "Me"}
+                {story.owner?._id === userId ? "Your Story" : story.owner?.username || "User"}
               </small>
             </Link>
           </div>
@@ -262,4 +262,5 @@ function Home() {
 }
 
 export default Home;
+
 
