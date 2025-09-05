@@ -191,7 +191,7 @@ function Home() {
                 className="card bg-dark text-white p-2"
                 style={{ width: "300px" }}
               >
-{/*                 <p>@{post.owner.username}</p> */}
+                <p>@{post.owner.username || "User"}</p>
                 <img
                   src={post.media}
                   alt="Post"
@@ -262,5 +262,6 @@ function Home() {
 }
 
 export default Home;
+
 
 
