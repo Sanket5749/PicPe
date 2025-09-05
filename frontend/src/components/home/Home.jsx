@@ -173,7 +173,7 @@ function Home() {
                 />
               </div>
               <small className="text-white d-block mt-1">
-                {story.owner?._id === userId ? "Your Story" : story.owner?.username || "User"}
+                {story.owner?._id === userId ? "Your Story" : story.owner?.username || "Me"}
               </small>
             </Link>
           </div>
@@ -191,7 +191,7 @@ function Home() {
                 className="card bg-dark text-white p-2"
                 style={{ width: "300px" }}
               >
-                <p>@{post.owner.username}</p>
+{/*                 <p>@{post.owner.username}</p> */}
                 <img
                   src={post.media}
                   alt="Post"
@@ -262,3 +262,4 @@ function Home() {
 }
 
 export default Home;
+
