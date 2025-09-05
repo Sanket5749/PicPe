@@ -5,8 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import "../LikeButton.css";
 
 function Home() {
@@ -115,12 +114,9 @@ function Home() {
             post._id === postId ? { ...post, likes: updatedLikes } : post
           )
         );
-
-        toast.success(isLiked ? "Post unliked!" : "Post liked!");
       }
     } catch (err) {
       console.error("Toggle like error:", err);
-      toast.error("Failed to update like status.");
     }
   };
 
@@ -183,7 +179,6 @@ function Home() {
           </div>
         ))}
       </div>
-
       <div className="flex-grow my-4">
         <h1 className="text-white mb-4">PicPe📷</h1>
         {posts.length === 0 ? (
@@ -208,7 +203,7 @@ function Home() {
 
                   <button
                     className={`like-button ${likedPosts[post._id] ? "liked" : ""}`}
-                    onClick={() => toggleLike(post._id)}
+                    onClick={() => {toggleLike(post._id); window.location.reload()}}
                   >
                     {likedPosts[post._id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}{" "}
                     {post.likes.length}
@@ -258,9 +253,15 @@ function Home() {
               </div>
             ))}
           </div>
-        <ToastContainer />
+        )}
+      </div>
+      <ToastContainer />
       <Footer />
     </div>
   );
 }
+
 export default Home;
+
+
+
