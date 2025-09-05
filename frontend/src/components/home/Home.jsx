@@ -258,4 +258,10 @@ function Home() {
               </div>
             ))}
           </div>
-        )}
+        <ToastContainer />
+      <Footer />
+    </div>
+  );
+}
+
+
